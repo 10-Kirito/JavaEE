@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+        <!-- <input type="text" v-model="message"> -->
+        <!-- 5. 插值表达式调用我们自定义的函数  -->
+        {{methodName()}}
+        <input type="text" v-on:click="methodName(message)">
+    </div>
+   
+</body>
+
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+    var app = new Vue({ // 1. Vue构造函数里面存放的是一个json对象（数据交换的格式），使用大括号进行包裹，里面存放的是键值对，在Vue JS中
+                        // 键可以没有引号，多个键值对之间使用‘，’进行分隔
+        el: '#app', // element 
+        // 2. 数据从哪里来的呢？ 
+        data: {
+            message: 'Hello,world' // 3. 以后数据就是通过发送Ajax请求来获得的，发送Ajax请求请求后端接口，然后后端再将请求的数据发送到前端
+        },
+        methods: {
+            methodName: function() {
+                // message = '页面加载于' + new Date().toLocaleDateString();
+                console.log(); 
+                this.message = 'Hello,Vue';  
+            },
+        },
+    })
+</script>
+</html>
